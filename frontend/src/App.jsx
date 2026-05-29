@@ -1,125 +1,57 @@
+import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-function Home() {
-  return (
-    <div>
-   
-      <Link to="/">
-  <h1>Anime Store</h1>
-</Link>
+import Home from "./pages/Home";
 
-      <h2>Welcome to Anime Store</h2>
-
-      <p>Buy amazing anime products here.</p>
-
-      <hr />
-
-      <h3>Policy Pages</h3>
-
-      <ul>
-        <li>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-        </li>
-
-        <li>
-          <Link to="/terms">Terms & Conditions</Link>
-        </li>
-
-        <li>
-          <Link to="/contact">Contact Us</Link>
-        </li>
-
-        <li>
-          <Link to="/refund-policy">Refund Policy</Link>
-        </li>
-
-        <li>
-          <Link to="/shipping-policy">Shipping Policy</Link>
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-function PrivacyPolicy() {
-  return (
-    <div>
-      <h1>Privacy Policy</h1>
-      <p>
-        We respect your privacy and protect your personal information.
-      </p>
-
-      <Link to="/">Go Back Home</Link>
-    </div>
-  );
+function Privacy() {
+  return <h1>Privacy Policy</h1>;
 }
 
 function Terms() {
-  return (
-    <div>
-      <h1>Terms & Conditions</h1>
-      <p>
-        By using this website, you agree to our terms and conditions.
-      </p>
-
-      <Link to="/">Go Back Home</Link>
-    </div>
-  );
+  return <h1>Terms & Conditions</h1>;
 }
 
 function Contact() {
-  return (
-    <div>
-      <h1>Contact Us</h1>
-      <p>Email: support@animestore.com</p>
-
-      <Link to="/">Go Back Home</Link>
-    </div>
-  );
+  return <h1>Contact Us</h1>;
 }
 
-function RefundPolicy() {
-  return (
-    <div>
-      <h1>Refund Policy</h1>
-      <p>
-        Refunds are processed according to our refund policy.
-      </p>
-
-      <Link to="/">Go Back Home</Link>
-    </div>
-  );
+function Refund() {
+  return <h1>Refund Policy</h1>;
 }
 
-function ShippingPolicy() {
-  return (
-    <div>
-      <h1>Shipping Policy</h1>
-      <p>
-        Orders are shipped within 3-7 business days.
-      </p>
-
-      <Link to="/">Go Back Home</Link>
-    </div>
-  );
+function Shipping() {
+  return <h1>Shipping Policy</h1>;
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <div style={{ padding: "20px", background: "#111", minHeight: "100vh" }}>
+        
+        <nav
+          style={{
+            display: "flex",
+            gap: "20px",
+            marginBottom: "30px",
+          }}
+        >
+          <Link to="/" style={{ color: "white" }}>Home</Link>
+          <Link to="/privacy" style={{ color: "white" }}>Privacy Policy</Link>
+          <Link to="/terms" style={{ color: "white" }}>Terms</Link>
+          <Link to="/contact" style={{ color: "white" }}>Contact</Link>
+          <Link to="/refund" style={{ color: "white" }}>Refund Policy</Link>
+          <Link to="/shipping" style={{ color: "white" }}>Shipping Policy</Link>
+        </nav>
 
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
-        <Route path="/terms" element={<Terms />} />
-
-        <Route path="/contact" element={<Contact />} />
-
-        <Route path="/refund-policy" element={<RefundPolicy />} />
-
-        <Route path="/shipping-policy" element={<ShippingPolicy />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/refund" element={<Refund />} />
+          <Route path="/shipping" element={<Shipping />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
